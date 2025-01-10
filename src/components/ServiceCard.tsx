@@ -30,7 +30,7 @@ export const ServiceCard = ({ title, description, price, duration, icon }: Servi
           onClick={() => navigate("/booking")}
           className="w-full bg-mystic-700 hover:bg-mystic-600 text-white"
         >
-          Book Now
+          Записаться
         </Button>
       </CardContent>
     </Card>

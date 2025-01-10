@@ -6,10 +6,10 @@ import { useNavigate } from "react-router-dom";
 export const Navbar = () => {
   const navigate = useNavigate();
   const links = [
-    { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
-    { name: "Book Now", path: "/booking" },
-    { name: "Contact", path: "/contact" },
+    { name: "Главная", path: "/" },
+    { name: "Услуги", path: "/services" },
+    { name: "Записаться", path: "/booking" },
+    { name: "Контакты", path: "/contact" },
   ];
 
   return (
