@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { ServiceCard } from "@/components/ServiceCard";
-import { Sparkles, Calculator, Scroll, CardStack } from "lucide-react";
+import { Sparkles, Calculator, Scroll, ScrollText } from "lucide-react";
 
 const Services = () => {
   const serviceCategories = [
@@ -160,49 +160,49 @@ const Services = () => {
           description: "Быстрый и точный ответ на ваш вопрос.",
           price: "1 500₽",
           duration: "1 сеанс",
-          icon: <CardStack className="w-full h-full" />,
+          icon: <ScrollText className="w-full h-full" />,
         },
         {
           title: "Таро прогноз на год",
           description: "Подробный прогноз по 4 сферам с картой совета на каждый месяц.",
           price: "10 000₽",
           duration: "1 сеанс",
-          icon: <CardStack className="w-full h-full" />,
+          icon: <ScrollText className="w-full h-full" />,
         },
         {
           title: "Расклад выбор",
           description: "Помощь в принятии важных решений.",
           price: "3 000₽",
           duration: "1 сеанс",
-          icon: <CardStack className="w-full h-full" />,
+          icon: <ScrollText className="w-full h-full" />,
         },
         {
           title: "Таро расклад на три месяца",
           description: "Детальный прогноз на ближайший квартал.",
           price: "3 000₽",
           duration: "1 сеанс",
-          icon: <CardStack className="w-full h-full" />,
+          icon: <ScrollText className="w-full h-full" />,
         },
         {
           title: "Таро расклад на отношения",
           description: "Глубокий анализ отношений.",
           price: "2 500₽",
           duration: "1 сеанс",
-          icon: <CardStack className="w-full h-full" />,
+          icon: <ScrollText className="w-full h-full" />,
         },
         {
           title: "Таро расклад на финансы",
           description: "Анализ финансовых перспектив.",
           price: "3 000₽",
           duration: "1 сеанс",
-          icon: <CardStack className="w-full h-full" />,
+          icon: <ScrollText className="w-full h-full" />,
         },
         {
           title: "Расклад на один вопрос",
           description: "Подробный ответ на любой вопрос.",
           price: "1 700₽",
           duration: "1 сеанс",
-          icon: <CardStack className="w-full h-full" />,
+          icon: <ScrollText className="w-full h-full" />,
         }
       ]
     }
