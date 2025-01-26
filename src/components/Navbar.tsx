@@ -8,7 +8,7 @@ export const Navbar = () => {
   const links = [
     { name: "Главная", path: "/" },
     { name: "Услуги", path: "/services" },
-    { name: "Записаться", path: "/booking" },
+    { name: "Отзывы", path: "/reviews" },
     { name: "Контакты", path: "/contact" },
   ];
 
