@@ -13,8 +13,9 @@ const Contact = () => {
             <CardContent className="flex items-center gap-4 p-6">
               <Phone className="w-6 h-6 text-gold-400" />
               <div>
-                <h3 className="font-semibold mb-1">Телефон</h3>
-                <p className="text-muted-foreground">+7 (XXX) XXX-XX-XX</p>
+                <h3 className="font-semibold mb-1">Телефоны</h3>
+                <p className="text-muted-foreground">Валентина: +7 902 059-21-32</p>
+                <p className="text-muted-foreground">Константин: +7 953 203-21-32</p>
               </div>
             </CardContent>
           </Card>
@@ -24,7 +25,7 @@ const Contact = () => {
               <Mail className="w-6 h-6 text-gold-400" />
               <div>
                 <h3 className="font-semibold mb-1">Email</h3>
-                <p className="text-muted-foreground">contact@mysticinsights.com</p>
+                <p className="text-muted-foreground">baskleev1107@gmail.com</p>
               </div>
             </CardContent>
           </Card>
@@ -34,7 +35,7 @@ const Contact = () => {
               <MapPin className="w-6 h-6 text-gold-400" />
               <div>
                 <h3 className="font-semibold mb-1">Адрес</h3>
-                <p className="text-muted-foreground">г. Москва, ул. Примерная, д. 1</p>
+                <p className="text-muted-foreground">г. Артем, ул. Иркутская, д. 26</p>
               </div>
             </CardContent>
           </Card>
