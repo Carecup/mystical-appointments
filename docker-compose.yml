@@ -3,35 +3,24 @@ services:
   app:
     build:
       context: .
-      args:
-        VITE_SUPABASE_URL: http://supabase:8000
-        VITE_SUPABASE_KEY: examplekey
-    ports:
-      - "80:80"
-    depends_on:
-      - supabase
-  supabase:
-    image: supabase/supabase-dev:latest
     environment:
       DB_HOST: db
       DB_NAME: postgres
       DB_USER: postgres
       DB_PASSWORD: postgres
       DB_PORT: 5432
-      DB_SCHEMA: public
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+      TELEGRAM_CHAT_ID: ${TELEGRAM_CHAT_ID}
     ports:
-      - "8000:8000"
+      - "80:3000"
     depends_on:
       - db
   db:
-    image: postgres:12
+    image: docker.io/library/postgres:12
     environment:
       POSTGRES_PASSWORD: postgres
     volumes:
       - db-data:/var/lib/postgresql/data
-    command:
-      - postgres
-      - "-c"
-      - wal_level=logical
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
 volumes:
   db-data:

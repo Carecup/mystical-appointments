@@ -71,13 +71,14 @@ We don't support custom domains (yet). If you want to deploy your project under 
 ## Docker Deployment
 
 The repository now includes a `docker-compose.yml` which spins up the app together
-with a local Supabase stack.
+with a PostgreSQL database.
 
 ```sh
 docker compose up -d
 ```
 
-The site will be served on port `80`. Point `fastpanel36645.hostkey.in` to your
-server and open the domain in the browser.
+Copy `.env.example` to `.env` and fill in your credentials. The site will be served
+on port `80`. Point `fastpanel36645.hostkey.in` to your server and open the domain
+in the browser.
 
 For details see [`DEPLOY_DOCKER.md`](DEPLOY_DOCKER.md).
