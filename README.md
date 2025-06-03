@@ -78,8 +78,9 @@ docker compose build
 docker compose up -d
 ```
 
-Copy `.env.example` to `.env` and fill in your credentials. The site will be served
-on port `80`. Point `fastpanel36645.hostkey.in` to your server and open the domain
-in the browser.
+Copy `.env.example` to `.env` and set the `TELEGRAM_BOT_TOKEN` and
+`TELEGRAM_CHAT_ID` variables for the booking form notifications.
+The site will be served on port `80`. Point `fastpanel36645.hostkey.in` to your
+server and open the domain in the browser.
 
 For details see [`DEPLOY_DOCKER.md`](DEPLOY_DOCKER.md).

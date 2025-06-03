@@ -2,11 +2,15 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import pkg from 'pg';
+import dotenv from 'dotenv';
 
 const { Pool } = pkg;
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Load environment variables from a .env file when running locally
+dotenv.config();
 
 const pool = new Pool({
   host: process.env.DB_HOST || 'db',
@@ -68,8 +72,10 @@ app.post('/api/send-telegram-message', async (req, res) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ chat_id: chatId, text: message, parse_mode: 'HTML' }),
     });
-    if (!response.ok) {
-      throw new Error('Telegram API error');
+    const data = await response.json();
+    if (!response.ok || data.ok === false) {
+      console.error('Telegram API response:', data);
+      return res.status(500).json({ error: data.description || 'Telegram API error' });
     }
     res.json({ success: true });
   } catch (err) {
