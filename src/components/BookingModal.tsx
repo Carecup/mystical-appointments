@@ -3,7 +3,6 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -28,11 +27,15 @@ export const BookingModal = ({ isOpen, onClose, service }: BookingModalProps) =>
     setIsLoading(true);
 
     try {
-      const { error } = await supabase.functions.invoke("send-telegram-message", {
-        body: { name, phone, dateTime, service },
+      const res = await fetch("/api/send-telegram-message", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, phone, dateTime, service }),
       });
 
-      if (error) throw error;
+      if (!res.ok) throw new Error("Failed to send message");
 
       toast({
         title: "Заявка отправлена!",

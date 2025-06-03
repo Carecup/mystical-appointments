@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { Star } from "lucide-react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
+
 
 const Reviews = () => {
   const [name, setName] = useState("");
@@ -19,20 +19,26 @@ const Reviews = () => {
   const { data: reviews, isLoading } = useQuery({
     queryKey: ["reviews"],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from("reviews")
-        .select("*")
-        .order("created_at", { ascending: false });
-      
-      if (error) throw error;
-      return data;
+      const res = await fetch("/api/reviews");
+      if (!res.ok) {
+        throw new Error("Failed to fetch reviews");
+      }
+      return res.json();
     },
   });
 
   const addReviewMutation = useMutation({
     mutationFn: async (reviewData: { name: string; content: string; rating: number }) => {
-      const { error } = await supabase.from("reviews").insert([reviewData]);
-      if (error) throw error;
+      const res = await fetch("/api/reviews", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(reviewData),
+      });
+      if (!res.ok) {
+        throw new Error("Failed to add review");
+      }
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["reviews"] });
