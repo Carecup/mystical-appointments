@@ -67,3 +67,17 @@ Simply open [Lovable](https://lovable.dev/projects/2b0532fd-80a9-41dd-982e-bfbf2
 ## I want to use a custom domain - is that possible?
 
 We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+
+## Docker Deployment
+
+The repository now includes a `docker-compose.yml` which spins up the app together
+with a local Supabase stack.
+
+```sh
+docker compose up -d
+```
+
+The site will be served on port `80`. Point `fastpanel36645.hostkey.in` to your
+server and open the domain in the browser.
+
+For details see [`DEPLOY_DOCKER.md`](DEPLOY_DOCKER.md).
