@@ -80,10 +80,11 @@ app.post('/api/send-telegram-message', async (req, res) => {
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-app.use(express.static(path.join(__dirname, 'dist')));
+// Serve static files from the build output one directory up
+app.use(express.static(path.join(__dirname, '../dist')));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+app.get('*', (_req, res) => {
+  res.sendFile(path.join(__dirname, '../dist', 'index.html'));
 });
 
 app.listen(PORT, () => {

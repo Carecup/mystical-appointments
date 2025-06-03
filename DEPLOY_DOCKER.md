@@ -8,6 +8,7 @@ PostgreSQL database. Everything runs locally in containers.
 From the project root execute:
 
 ```sh
+docker compose build
 docker compose up -d
 ```
 

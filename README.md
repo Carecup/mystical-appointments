@@ -74,6 +74,7 @@ The repository now includes a `docker-compose.yml` which spins up the app togeth
 with a PostgreSQL database.
 
 ```sh
+docker compose build
 docker compose up -d
 ```
 
